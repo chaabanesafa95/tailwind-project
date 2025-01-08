@@ -1,0 +1,25 @@
+ALGORITHM algorithm_check_point
+VAR
+    phrase: STRING:="safa khalil chaabane.";
+    longueur:INTEGER:=0;
+    nb_mots:INTEGER:=0;
+    nb_voy:INTEGER:=0;
+    i:INTEGER;
+BEGIN
+    longueur:=phrase.length;
+    IF (phrase[0] <> " ") THEN
+    nb_mots:=1;
+    END_IF
+
+    FOR i FROM 0 TO longueur-1 STEP 1  DO
+        IF (phrase[i] IN ["o","a","i","e","u","y","O","A","I","E","U","Y"]) THEN
+        nb_voy:=nb_voy+1;
+        END_IF
+        IF (phrase[i]=" ") AND (i>0) OR (phrase[i-1]<> " ") THEN
+        nb_mots:=nb_mots+1;
+        END_IF
+    END_FOR
+    write("longueur de la phrase:",longueur);
+    write("nombre de mots :",nb_mots);
+    write("nombre de voyelles:",nb_voy);
+END
